@@ -1,0 +1,248 @@
+package ejercicioactividad2;
+
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class Empleado {
+
+    private String nombre, apellido, correo;
+    private int id, tipoContrato;
+
+    public Empleado(String nombre, String apellido, String correo, int id, int tipoContrato) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.id = id;
+        this.tipoContrato = tipoContrato;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getTipoContrato() {
+        return tipoContrato;
+    }
+
+    public void setTipoContrato(int tipoContrato) {
+        this.tipoContrato = tipoContrato;
+    }
+
+    //los métodos los creé estáticos (static) para tener más versatilidad en su implementación)
+    //método para gestionar empleados
+    public static String crearRegistro(ArrayList<Empleado> listaEmpleados) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Ingrese el nombre del empleado");
+        String nombre = sc.nextLine();
+        System.out.println("Ingrese el apellido del empleado:");
+        String apellido = sc.nextLine();
+
+        System.out.println("Ingrese el correo del empleado:");
+        String correo = sc.nextLine();
+
+        System.out.println("Ingrese el ID del empleado:");
+        int id = sc.nextInt();
+
+        System.out.println("Ingrese el tipo de contrato del empleado (número):");
+        int tipoContrato = sc.nextInt();
+        sc.nextLine();
+
+        Empleado empleadoNuevo = new Empleado(nombre, apellido, correo, id, tipoContrato);
+        listaEmpleados.add(empleadoNuevo);
+
+        return "Empleado agregado con éxito: " + nombre + " " + apellido;
+
+    }
+
+    //método para mostrar los registros
+    public static void mostrarRegistros(ArrayList<Empleado> listaEmpleados) {
+        if (listaEmpleados.isEmpty()) {
+            System.out.println("No hay empleados registrados.");
+
+        }
+
+        System.out.println("Lista de empleados: ");
+        for (Empleado empleado : listaEmpleados) {
+            System.out.println("ID: " + empleado.getId() + ", Nombre: " + empleado.getNombre() + " " + empleado.getApellido()
+                    + ", Correo: " + empleado.getCorreo() + ", Tipo Contrato: "
+                    + (empleado.getTipoContrato() == 1 ? "Permanente" : "Temporal"));
+        }
+    }
+
+    //método para actualizar registors (modificar informacion a un empleado)
+    public static void actualizarRegistro(ArrayList<Empleado> listaEmpleados) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Ingrese el ID del empleado a actualizar:");
+        int id = sc.nextInt();
+        sc.nextLine(); // En POO 1 nos enseñaron que esto es bueno hacerlo para limpiar el buffer
+
+        Empleado empleadoEncontrado = null; //inicializamos esta variable en null para "darle un valor inicial".
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado.getId() == id) {
+                empleadoEncontrado = empleado;
+                break;
+            }
+        }
+
+        if (empleadoEncontrado == null) {
+            System.out.println("Empleado no encontrado.");
+
+        }
+
+        System.out.println("Ingrese el nuevo nombre (actual: " + empleadoEncontrado.getNombre() + "):");
+        String nombreNuevo = sc.nextLine();
+        System.out.println("Ingrese el nuevo apellido (actual: " + empleadoEncontrado.getApellido() + "):");
+        String apellidoNuevo = sc.nextLine();
+        System.out.println("Ingrese el nuevo correo (actual: " + empleadoEncontrado.getCorreo() + "):");
+        String correoNuevo = sc.nextLine();
+        System.out.println("Ingrese el nuevo tipo de contrato (actual: " + empleadoEncontrado.getTipoContrato() + "):");
+        int tipoContratoNuevo = sc.nextInt();
+
+        empleadoEncontrado.setNombre(nombreNuevo);
+        empleadoEncontrado.setApellido(apellidoNuevo);
+        empleadoEncontrado.setCorreo(correoNuevo);
+        empleadoEncontrado.setTipoContrato(tipoContratoNuevo);
+
+        System.out.println("Empleado actualizado con éxito.");
+    }
+
+    //método para elmimar registros (empleados ingresados)
+    public static void eliminarRegistro(ArrayList<Empleado> listaEmpleados) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Ingrese el ID del empleado a eliminar:");
+        int id = sc.nextInt();
+
+        boolean eliminado = listaEmpleados.removeIf(empleado -> empleado.getId() == id);
+
+        if (eliminado) {
+            System.out.println("Empleado eliminado con éxito.");
+        } else {
+            System.out.println("Empleado no encontrado.");
+        }
+    }
+
+    //método para asignarle un departamento a un empleado
+    /* public static void asignarDepartamento(ArrayList<Empleado> listaEmpleados) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Ingrese el ID del empleado para asignar un departamento:");
+        int id = sc.nextInt();
+        sc.nextLine(); 
+
+        Empleado empleadoEncontrado = null;
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado.getId() == id) {
+                empleadoEncontrado = empleado;
+                break;
+            }
+        }
+
+        if (empleadoEncontrado == null) {
+            System.out.println("Empleado no encontrado.");
+            return;
+        }
+
+        System.out.println("Ingrese el nombre del departamento:");
+        String departamento = sc.nextLine();
+        System.out.println("Departamento asignado a " + empleadoEncontrado.getNombre() + " exitosamente.");
+    }*/
+    
+    //mejor lo hice con un try/catch para cumplir con lo que piden en la rúbrica de manejo de excepciones
+    public static void asignarDepartamento(ArrayList<Empleado> listaEmpleados) {
+        Scanner sc = new Scanner(System.in);
+
+        try {
+            if (listaEmpleados.isEmpty()) {
+                System.out.println("La lista de empleados está vacía. No hay empleados para asignar un departamento.");
+
+            }
+
+            System.out.println("Ingrese el ID del empleado para asignar un departamento:");
+            int id = sc.nextInt();
+            sc.nextLine();
+
+            Empleado empleadoEncontrado = null;
+            for (Empleado empleado : listaEmpleados) {
+                if (empleado.getId() == id) {
+                    empleadoEncontrado = empleado;
+                    break;// vi e un foro que con el break se logra optimizar los bucles for ya que el código evita iterar innecesariamente
+                }
+            }
+
+            if (empleadoEncontrado == null) {
+                System.out.println("Empleado no encontrado. Por favor, verifique el ID ingresado.");
+
+            }
+
+            System.out.println("Ingrese el nombre del departamento:");
+            String departamento = sc.nextLine();
+
+            
+            System.out.println("Departamento asignado a " + empleadoEncontrado.getNombre() + " exitosamente.");
+
+        } catch (java.util.InputMismatchException e) {
+            System.out.println("Error: Por favor ingrese un valor válido para el ID del empleado.");
+            sc.nextLine();
+        } catch (Exception e) {
+            System.out.println("Error inesperado: " + e.getMessage());
+        }
+    }
+
+    //método para cambiar la función de los empleados
+    public static void modificarFuncion(ArrayList<Empleado> listaEmpleados) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Ingrese el ID del empleado para modificar su función:");
+        int id = sc.nextInt();
+        sc.nextLine();
+
+        Empleado empleadoEncontrado = null;
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado.getId() == id) {
+                empleadoEncontrado = empleado;
+                break;
+            }
+        }
+
+        if (empleadoEncontrado == null) {
+            System.out.println("Empleado no encontrado.");
+            return;
+        }
+
+        System.out.println("Ingrese la nueva función para el empleado:");
+        String nuevaFuncion = sc.nextLine();
+        System.out.println("Función modificada exitosamente para " + empleadoEncontrado.getNombre() + ".");
+    }
+
+}
