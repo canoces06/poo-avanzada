@@ -1,5 +1,6 @@
 package ejercicioactividad2;
 
+import com.sun.source.doctree.ReturnTree;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -84,19 +85,22 @@ public class Empleado {
     }
 
     //método para mostrar los registros
-    public static void mostrarRegistros(ArrayList<Empleado> listaEmpleados) {
+    public static Empleado mostrarRegistros(ArrayList<Empleado> listaEmpleados) {
         if (listaEmpleados.isEmpty()) {
             System.out.println("No hay empleados registrados.");
 
-        }
+        } 
 
         System.out.println("Lista de empleados: ");
         for (Empleado empleado : listaEmpleados) {
             System.out.println("ID: " + empleado.getId() + ", Nombre: " + empleado.getNombre() + " " + empleado.getApellido()
                     + ", Correo: " + empleado.getCorreo() + ", Tipo Contrato: "
                     + (empleado.getTipoContrato() == 1 ? "Permanente" : "Temporal"));
-        }
-    }
+        } 
+        return null;
+    } 
+
+    
 
     //método para actualizar registors (modificar informacion a un empleado)
     public static void actualizarRegistro(ArrayList<Empleado> listaEmpleados) {
@@ -137,7 +141,7 @@ public class Empleado {
     }
 
     //método para elmimar registros (empleados ingresados)
-    public static void eliminarRegistro(ArrayList<Empleado> listaEmpleados) {
+    public static Empleado eliminarRegistro(ArrayList<Empleado> listaEmpleados) {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Ingrese el ID del empleado a eliminar:");
@@ -150,6 +154,7 @@ public class Empleado {
         } else {
             System.out.println("Empleado no encontrado.");
         }
+        return null;
     }
 
     //método para asignarle un departamento a un empleado
