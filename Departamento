@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class Departamento {
 
-    String nombreDepartamento;
-    int estadoDepartamento //1 para cuando está acivo y 0 para cuando está inactivo
+    private String nombreDepartamento;
+    private int estadoDepartamento //1 para cuando está acivo y 0 para cuando está inactivo
             , idDepartamento;
 
     public Departamento(String nombreDepartamento, int estadoDepartamento, int idDepartamento) {
