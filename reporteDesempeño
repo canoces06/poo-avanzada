@@ -2,9 +2,9 @@ package ejercicioactividad2;
 
 public class reporteDesempeño {
 
-    Empleado empleado;
-    Departamento departamento;
-    String metricas;
+    private Empleado empleado;
+    private Departamento departamento;
+    private String metricas;
 
     public reporteDesempeño(Empleado empleado, Departamento departamento, String metricas) {
         this.empleado = empleado;
