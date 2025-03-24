@@ -1,0 +1,197 @@
+run:
+
+ Menú de Opciones:
+1) Crear Departamento
+2) Modificar Departamento
+3) Listar Departamentos
+4) Ver Usuarios por Departamento
+5) Generar Reporte de Desempeño
+6) Crear Usuario
+7) Mostrar Usuarios
+8) Eliminar Usuarios
+9) Asignar Departamento a Empleado
+10) Modificar Función de Empleado
+0. Salir
+Elija una opción: 6
+Ingrese el nombre del empleado
+carlos 
+Ingrese el apellido del empleado:
+alcaraz
+Ingrese el correo del empleado:
+caraz@gmail.com
+Ingrese el ID del empleado:
+01
+Ingrese el tipo de contrato del empleado (número):
+1
+Empleado agregado con éxito: carlos  alcaraz
+
+ Menú de Opciones:
+1) Crear Departamento
+2) Modificar Departamento
+3) Listar Departamentos
+4) Ver Usuarios por Departamento
+5) Generar Reporte de Desempeño
+6) Crear Usuario
+7) Mostrar Usuarios
+8) Eliminar Usuarios
+9) Asignar Departamento a Empleado
+10) Modificar Función de Empleado
+0. Salir
+Elija una opción: 6
+Ingrese el nombre del empleado
+camila
+Ingrese el apellido del empleado:
+castal
+Ingrese el correo del empleado:
+castal@gmai.com
+Ingrese el ID del empleado:
+02
+Ingrese el tipo de contrato del empleado (número):
+2
+Empleado agregado con éxito: camila castal
+
+ Menú de Opciones:
+1) Crear Departamento
+2) Modificar Departamento
+3) Listar Departamentos
+4) Ver Usuarios por Departamento
+5) Generar Reporte de Desempeño
+6) Crear Usuario
+7) Mostrar Usuarios
+8) Eliminar Usuarios
+9) Asignar Departamento a Empleado
+10) Modificar Función de Empleado
+0. Salir
+Elija una opción: 1
+Ingrese el nombre del departamento:
+Antioquia
+Ingrese el estado del departamento (1: Activo, 0: Inactivo):
+1
+Ingrese el ID del departamento:
+01
+Departamento creado correctamente: Antioquia
+
+ Menú de Opciones:
+1) Crear Departamento
+2) Modificar Departamento
+3) Listar Departamentos
+4) Ver Usuarios por Departamento
+5) Generar Reporte de Desempeño
+6) Crear Usuario
+7) Mostrar Usuarios
+8) Eliminar Usuarios
+9) Asignar Departamento a Empleado
+10) Modificar Función de Empleado
+0. Salir
+Elija una opción: 1
+Ingrese el nombre del departamento:
+Cundinamarca
+Ingrese el estado del departamento (1: Activo, 0: Inactivo):
+1
+Ingrese el ID del departamento:
+02
+Departamento creado correctamente: Cundinamarca
+
+ Menú de Opciones:
+1) Crear Departamento
+2) Modificar Departamento
+3) Listar Departamentos
+4) Ver Usuarios por Departamento
+5) Generar Reporte de Desempeño
+6) Crear Usuario
+7) Mostrar Usuarios
+8) Eliminar Usuarios
+9) Asignar Departamento a Empleado
+10) Modificar Función de Empleado
+0. Salir
+Elija una opción: 3
+Departamentos registrados:
+ID: 1, Nombre: Antioquia, Estado: Activo
+ID: 2, Nombre: Cundinamarca, Estado: Activo
+
+ Menú de Opciones:
+1) Crear Departamento
+2) Modificar Departamento
+3) Listar Departamentos
+4) Ver Usuarios por Departamento
+5) Generar Reporte de Desempeño
+6) Crear Usuario
+7) Mostrar Usuarios
+8) Eliminar Usuarios
+9) Asignar Departamento a Empleado
+10) Modificar Función de Empleado
+0. Salir
+Elija una opción: 7
+Lista de empleados: 
+ID: 1, Nombre: carlos  alcaraz, Correo: caraz@gmail.com, Tipo Contrato: Permanente
+ID: 2, Nombre: camila castal, Correo: castal@gmai.com, Tipo Contrato: Temporal
+null
+
+ Menú de Opciones:
+1) Crear Departamento
+2) Modificar Departamento
+3) Listar Departamentos
+4) Ver Usuarios por Departamento
+5) Generar Reporte de Desempeño
+6) Crear Usuario
+7) Mostrar Usuarios
+8) Eliminar Usuarios
+9) Asignar Departamento a Empleado
+10) Modificar Función de Empleado
+0. Salir
+Elija una opción: 9
+Ingrese el ID del empleado para asignar un departamento:
+01
+Ingrese el nombre del departamento:
+Antioquia
+Departamento asignado a carlos  exitosamente.
+
+ Menú de Opciones:
+1) Crear Departamento
+2) Modificar Departamento
+3) Listar Departamentos
+4) Ver Usuarios por Departamento
+5) Generar Reporte de Desempeño
+6) Crear Usuario
+7) Mostrar Usuarios
+8) Eliminar Usuarios
+9) Asignar Departamento a Empleado
+10) Modificar Función de Empleado
+0. Salir
+Elija una opción: 10
+Ingrese el ID del empleado para modificar su función:
+02
+Ingrese la nueva función para el empleado:
+Gerente
+Función modificada exitosamente para camila.
+
+ Menú de Opciones:
+1) Crear Departamento
+2) Modificar Departamento
+3) Listar Departamentos
+4) Ver Usuarios por Departamento
+5) Generar Reporte de Desempeño
+6) Crear Usuario
+7) Mostrar Usuarios
+8) Eliminar Usuarios
+9) Asignar Departamento a Empleado
+10) Modificar Función de Empleado
+0. Salir
+Elija una opción: 4
+Ingrese el ID del departamento: 01
+Usuarios asignados al departamento con ID 1:
+ID: 1, Nombre: carlos  alcaraz
+
+ Menú de Opciones:
+1) Crear Departamento
+2) Modificar Departamento
+3) Listar Departamentos
+4) Ver Usuarios por Departamento
+5) Generar Reporte de Desempeño
+6) Crear Usuario
+7) Mostrar Usuarios
+8) Eliminar Usuarios
+9) Asignar Departamento a Empleado
+10) Modificar Función de Empleado
+0. Salir
+Elija una opción: 
