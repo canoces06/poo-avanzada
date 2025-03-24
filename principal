@@ -1,0 +1,91 @@
+package ejercicioactividad2;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class EjercicioActividad2 {
+
+    public static void main(String[] args) {
+
+        ArrayList<Departamento> listaDepartamentos = new ArrayList<>();
+        ArrayList<Empleado> listaEmpleados = new ArrayList<>();
+
+        // menu de opciones con un do while implementado 
+        Scanner sc = new Scanner(System.in);
+        int opcion;
+
+        do {
+            System.out.println("\n Menú de Opciones:");
+            System.out.println("1) Crear Departamento");
+            System.out.println("2) Modificar Departamento");
+            System.out.println("3) Listar Departamentos");
+            System.out.println("4) Ver Usuarios por Departamento");
+            System.out.println("5) Generar Reporte de Desempeño");
+            System.out.println("6) Crear Usuario");
+            System.out.println("0. Salir");
+            System.out.print("Elija una opción: ");
+                    
+            opcion = sc.nextInt();
+            sc.nextLine();
+
+            switch (opcion) {
+                case 1:
+                    // Crear un departamento
+                    Departamento nuevoDepartamento = new Departamento("", 1, 0); // Parámetros predeterminados para crear
+                    nuevoDepartamento.crearDepartamento(listaDepartamentos);
+                    break;
+
+                case 2:
+                    // Modificar un departamento
+                    Departamento.modificarDepartamento(listaDepartamentos);
+                    break;
+
+                case 3:
+                    // Listar departamentos
+                    Departamento.listarDepartamentos(listaDepartamentos);
+                    break;
+
+                case 4:
+                    // Ver usuarios por departamento
+                    System.out.print("Ingrese el ID del departamento: ");
+                    int idDepartamento = sc.nextInt();
+                    Departamento.verUsuario(listaEmpleados, idDepartamento);
+                    break;
+
+                case 5:
+                    // Generar reporte de desempeño
+                    System.out.print("Ingrese el ID del empleado para el reporte: ");
+                    int idEmpleado = sc.nextInt();
+                    sc.nextLine();
+                    Empleado empleadoSeleccionado = null;
+                    for (Empleado emp : listaEmpleados) {
+                        if (emp.getId() == idEmpleado) {
+                            empleadoSeleccionado = emp;
+                            break;
+                        }
+                    }
+                    if (empleadoSeleccionado != null) {
+                        reporteDesempeño reporte = new reporteDesempeño(empleadoSeleccionado, listaDepartamentos.get(0), "Métricas de desempeño aquí");
+                        reporte.generarReporteIndividual(empleadoSeleccionado);
+                    } else {
+                        System.out.println("Empleado no encontrado.");
+                    }
+                    break;
+
+                case 6:
+
+                    System.out.println(Empleado.crearRegistro(listaEmpleados)); // podemos llamar directamente al método crear registro 
+                    break;
+                    
+                case 0:
+                    System.out.println("Saliendo...");
+                    break;
+
+                default:
+                    System.out.println("Opción no válida.");
+            }
+
+        } while (opcion != 0);
+    }
+
+}
