@@ -1,0 +1,121 @@
+package ejercicioactividad2;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Departamento {
+
+    String nombreDepartamento;
+    int estadoDepartamento //1 para cuando está acivo y 0 para cuando está inactivo
+            , idDepartamento;
+
+    public Departamento(String nombreDepartamento, int estadoDepartamento, int idDepartamento) {
+        this.nombreDepartamento = nombreDepartamento;
+        this.estadoDepartamento = estadoDepartamento;
+        this.idDepartamento = idDepartamento;
+    }
+
+    public String getNombreDepartamento() {
+        return nombreDepartamento;
+    }
+
+    public void setNombreDepartamento(String nombreDepartamento) {
+        this.nombreDepartamento = nombreDepartamento;
+    }
+
+    public int getEstadoDepartamento() {
+        return estadoDepartamento;
+    }
+
+    public void setEstadoDepartamento(int estadoDepartamento) {
+        this.estadoDepartamento = estadoDepartamento;
+    }
+
+    public int getIdDepartamento() {
+        return idDepartamento;
+    }
+
+    public void setIdDepartamento(int idDepartamento) {
+        this.idDepartamento = idDepartamento;
+    }
+
+    //creamos el dpto con el siguiente método
+    public void crearDepartamento(ArrayList<Departamento> listaDepartamentos) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Ingrese el nombre del departamento:");
+        String nombre = sc.nextLine();
+        System.out.println("Ingrese el estado del departamento (1: Activo, 0: Inactivo):");
+        int estado = sc.nextInt();
+        System.out.println("Ingrese el ID del departamento:");
+        int id = sc.nextInt();
+
+        Departamento nuevoDepartamento = new Departamento(nombre, estado, id);
+        listaDepartamentos.add(nuevoDepartamento);
+
+        System.out.println("Departamento creado correctamente: " + nombre);
+    }
+    
+    //modificar la lista de departamentos 
+    public static void modificarDepartamento(ArrayList<Departamento> listaDepartamentos) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Ingrese el ID del departamento a modificar:");
+        int id = sc.nextInt();
+        sc.nextLine();
+
+        Departamento departamentoEncontrado = null;
+        for (Departamento departamento : listaDepartamentos) {
+            if (departamento.getIdDepartamento() == id) {
+                departamentoEncontrado = departamento;
+                break; //nuevamente el break para que se detenga cuando encuentre el departamento (id) que se está buscando y no itere innecesariamente
+            }
+        }
+
+        if (departamentoEncontrado == null) {
+            System.out.println("Departamento no encontrado.");
+
+        }
+
+        System.out.println("Ingrese el nuevo nombre del departamento (actual: " + departamentoEncontrado.getNombreDepartamento() + "):");
+        String nuevoNombre = sc.nextLine();
+        System.out.println("Ingrese el nuevo estado del departamento (1: Activo, 0: Inactivo, actual: " + departamentoEncontrado.getEstadoDepartamento() + "):");
+        int nuevoEstado = sc.nextInt();
+
+        departamentoEncontrado.setNombreDepartamento(nuevoNombre);
+        departamentoEncontrado.setEstadoDepartamento(nuevoEstado);
+
+        System.out.println("Departamento modificado exitosamente.");
+    }
+    
+    
+    public static void verUsuario(ArrayList<Empleado> listaEmpleados, int idDepartamento) {
+        System.out.println("Usuarios asignados al departamento con ID " + idDepartamento + ":");
+        boolean encontrado = false;
+        //con el for-each es más fácil recorrer en este caso
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado.getTipoContrato() == idDepartamento) { 
+                System.out.println("ID: " + empleado.getId() + ", Nombre: " + empleado.getNombre() + " " + empleado.getApellido());
+                encontrado = true;
+            }
+        }
+
+        if (!encontrado) {
+            System.out.println("No hay usuarios asignados a este departamento.");
+        }
+    }
+    
+    //con este método visualizamos los departamentos registrados
+    public static void listarDepartamentos(ArrayList<Departamento> listaDepartamentos) {
+        if (listaDepartamentos.isEmpty()) {
+            System.out.println("No hay departamentos registrados.");
+            return;
+        }
+
+        System.out.println("Departamentos registrados:");
+        for (Departamento departamento : listaDepartamentos) {
+            System.out.println("ID: " + departamento.getIdDepartamento() + ", Nombre: " + departamento.getNombreDepartamento()
+                    + ", Estado: " + (departamento.getEstadoDepartamento() == 1 ? "Activo" : "Inactivo"));
+        }
+    }
+}
