@@ -1,0 +1,62 @@
+package ejercicioactividad2;
+
+public class reporteDesempeño {
+
+    Empleado empleado;
+    Departamento departamento;
+    String metricas;
+
+    public reporteDesempeño(Empleado empleado, Departamento departamento, String metricas) {
+        this.empleado = empleado;
+        this.departamento = departamento;
+        this.metricas = metricas;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
+    public Departamento getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
+    }
+
+    public String getMetricas() {
+        return metricas;
+    }
+
+    public void setMetricas(String metricas) {
+        this.metricas = metricas;
+    }
+
+    // Generar reporte para un empleado específico
+    public void generarReporteIndividual(Empleado empleado) {
+        System.out.println("Reporte de Desempeño Individual:");
+        System.out.println("ID: " + empleado.getId());
+        System.out.println("Nombre: " + empleado.getNombre() + " " + empleado.getApellido());
+        System.out.println("Correo: " + empleado.getCorreo());
+        System.out.println("Tipo Contrato: " + (empleado.getTipoContrato() == 1 ? "Permanente" : "Temporal"));
+        System.out.println("Métricas de desempeño: " + metricas);
+        System.out.println("-------------------------------------");
+    }
+
+    // Generar reporte para todos los empleados de un departamento
+    /*public void generarReporteDepartamentos(Departamento departamento) {
+        System.out.println("Reporte de Desempeño por Departamento:");
+        System.out.println("Nombre del Departamento: " + departamento.getNombreDepartamento());
+        System.out.println("Empleados:");
+        for (Empleado empleado : departamento.getEmpleados()) {
+            System.out.println("ID: " + empleado.getId() + ", Nombre: " + empleado.getNombre() + " " + empleado.getApellido());
+        }
+        System.out.println("Métricas generales del departamento: " + metricas);
+        System.out.println("-------------------------------------");
+    }*/
+
+}
