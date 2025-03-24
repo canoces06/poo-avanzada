@@ -22,6 +22,8 @@ public class EjercicioActividad2 {
             System.out.println("4) Ver Usuarios por Departamento");
             System.out.println("5) Generar Reporte de Desempeño");
             System.out.println("6) Crear Usuario");
+            System.out.println("7) Mostrar Usuarios");
+            System.out.println("8) Eliminar Usuarios");
             System.out.println("0. Salir");
             System.out.print("Elija una opción: ");
                     
@@ -75,6 +77,16 @@ public class EjercicioActividad2 {
                 case 6:
 
                     System.out.println(Empleado.crearRegistro(listaEmpleados)); // podemos llamar directamente al método crear registro 
+                    break;
+                case 7:
+                    //mostramos los usuarios creados
+
+                    System.out.println(Empleado.mostrarRegistros(listaEmpleados)); 
+                    break;
+                case 8:
+                    //eliminamos los usuarios creados
+
+                    System.out.println(Empleado.eliminarRegistro(listaEmpleados)); 
                     break;
                     
                 case 0:
