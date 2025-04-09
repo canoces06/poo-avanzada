@@ -1,13 +1,20 @@
 package ejercicioactividad2;
 
+import capaVisible.presentacion.CrearDepartamento;
+import capaVisible.presentacion.ventanaPrincipal;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class EjercicioActividad2 {
 
     public static void main(String[] args) {
+        
+        ventanaPrincipal ventana = new ventanaPrincipal();
+        ventana.setVisible(true);
+        
+      
 
-        ArrayList<Departamento> listaDepartamentos = new ArrayList<>();
+        /* ArrayList<Departamento> listaDepartamentos = new ArrayList<>();
         ArrayList<Empleado> listaEmpleados = new ArrayList<>();
 
         // menu de opciones con un do while implementado 
@@ -24,9 +31,11 @@ public class EjercicioActividad2 {
             System.out.println("6) Crear Usuario");
             System.out.println("7) Mostrar Usuarios");
             System.out.println("8) Eliminar Usuarios");
+            System.out.println("9) Asignar Departamento a Empleado");
+            System.out.println("10) Modificar Función de Empleado");
             System.out.println("0. Salir");
             System.out.print("Elija una opción: ");
-                    
+
             opcion = sc.nextInt();
             sc.nextLine();
 
@@ -81,14 +90,23 @@ public class EjercicioActividad2 {
                 case 7:
                     //mostramos los usuarios creados
 
-                    System.out.println(Empleado.mostrarRegistros(listaEmpleados)); 
+                    System.out.println(Empleado.mostrarRegistros(listaEmpleados));
                     break;
                 case 8:
                     //eliminamos los usuarios creados
 
-                    System.out.println(Empleado.eliminarRegistro(listaEmpleados)); 
+                    System.out.println(Empleado.eliminarRegistro(listaEmpleados));
                     break;
-                    
+                case 9:
+                    // asignar departamento a un empleado
+                    Empleado.asignarDepartamento(listaEmpleados);  
+                    break;
+
+                case 10:
+                    // modificar función de un empleado
+                    Empleado.modificarFuncion(listaEmpleados);  
+                    break;
+
                 case 0:
                     System.out.println("Saliendo...");
                     break;
@@ -97,7 +115,7 @@ public class EjercicioActividad2 {
                     System.out.println("Opción no válida.");
             }
 
-        } while (opcion != 0);
-    }
+        } while (opcion != 0); */
+    } 
 
 }
